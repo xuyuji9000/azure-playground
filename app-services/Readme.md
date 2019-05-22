@@ -1,0 +1,1 @@
+- Deploy this [service](https://github.com/xuyuji9000/azure-service-apps-playground)
