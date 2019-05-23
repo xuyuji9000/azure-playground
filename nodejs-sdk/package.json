@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node --presets es2015 index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/arm-storage": "^8.1.0",
+    "@azure/ms-rest-azure-env": "^1.1.2",
+    "@azure/ms-rest-nodeauth": "^2.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
