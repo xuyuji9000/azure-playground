@@ -44,3 +44,9 @@ az aks get-credentials \
 --resource-group testkx-k8s \
 --name testkx-k8s
 ```
+
+- Create vanilla nginx service(with https):
+
+``` bash
+kubectl create -f ./nginx
+```
