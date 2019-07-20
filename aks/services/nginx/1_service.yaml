@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: azure-vote-front
+  name: nginx
 spec:
   replicas: 1
   strategy:
@@ -12,12 +12,12 @@ spec:
   template:
     metadata:
       labels:
-        app: azure-vote-front
+        app: nginx
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: azure-vote-front
+      - name: nginx
         image: nginx:1.14
         ports:
         - containerPort: 80
@@ -36,4 +36,4 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: nginx

@@ -1,0 +1,1 @@
+- Deploy nginx service: `kubectl apply -f ./nginx`
