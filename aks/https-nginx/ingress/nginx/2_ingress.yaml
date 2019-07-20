@@ -5,6 +5,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+  - hosts:
+    - nginx.yogiman.cn
+    secretName: aks-ingress-tls
   rules:
   - host: nginx.yogiman.cn
     http:
