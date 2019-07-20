@@ -10,3 +10,23 @@ az network public-ip create \
 --dns-name testkx-k8s \
 --allocation-method static
 ```
+
+- Generate https cert
+
+``` bash
+certbot --manual \
+--preferred-challenges dns \
+--config-dir ./cert/config \
+--work-dir ./cert/work \
+--logs-dir ./cert/logs \
+-d *.yogiman.cn \
+certonly
+```
+
+- Create secret
+
+``` bash
+kubectl create secret tls aks-ingress-tls \
+--key cert/config/archive/yogiman.cn/privkey1.pem \
+--cert cert/config/archive/yogiman.cn/fullchain1.pem
+```
