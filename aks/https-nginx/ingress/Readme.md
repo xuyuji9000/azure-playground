@@ -10,10 +10,3 @@ az network public-ip create \
 --dns-name testkx-k8s \
 --allocation-method static
 ```
-
-- Deploy ingress
-
-``` bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud-generic.yaml
-```

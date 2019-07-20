@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 spec:
   externalTrafficPolicy: Local
+  loadBalancerIP: {{PUBLIC_IP}}
   type: LoadBalancer
   selector:
     app.kubernetes.io/name: ingress-nginx
