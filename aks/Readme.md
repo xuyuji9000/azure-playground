@@ -7,11 +7,23 @@ az group create --name testkx-k8s --location chinaeast2
 - Create k8s cluster 
 
 ``` bash
+RESOURCE_GROUP=testkx-k8s
+NAME=testkx-k8s
+VERSION=1.14.0
 az aks create \
---resource-group testkx-k8s \
---name testkx-k8s \
+--resource-group ${RESOURCE_GROUP} \
+--name ${NAME} \
 --node-count 1 \
---enable-addons monitoring
+--enable-addons monitoring \
+--kubernetes-version ${VERSION}
+```
+
+- Delete k8s cluster
+
+``` bash
+az aks delete \
+--resource-group testkx-k8s \
+--name testkx-k8s
 ```
 
 - Get cluster credential
