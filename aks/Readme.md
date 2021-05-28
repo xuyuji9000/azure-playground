@@ -2,3 +2,5 @@
 
 
 - [deploy-aks-with-arm-template](./deploy-aks-with-arm-template/Readme.md)
+
+- [deploy-with-bicep-script](./deploy-with-bicep-script/Readme.md)
