@@ -1,6 +1,3 @@
-- [deploy-aks-with-cli](./deploy-aks-with-cli.md)
+This folder contains learning related to AKS.
 
-
-- [deploy-aks-with-arm-template](./deploy-aks-with-arm-template/Readme.md)
-
-- [deploy-with-bicep-script](./deploy-with-bicep-script/Readme.md)
+- [cluster-deployment](cluster-deployment/Readme.md)
