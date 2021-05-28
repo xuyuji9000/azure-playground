@@ -1,32 +1,14 @@
-param clusterName string = 'test-k8s'
-param location string = resourceGroup().location
-param dnsPrefix string = '${clusterName}-dns'
-param osDiskSizeGB int = 30
-param agentCount int = 3
-param vmSize string = 'Standard_DS2_v2'
-param osType string = 'Linux'
+targetScope = 'subscription'
 
-resource aks 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
-    name: clusterName
-    location: location
-    properties: {
-        dnsPrefix: dnsPrefix
-        agentPoolProfiles: [
-            {
-            name: 'agentpool'
-            osDiskSizeGB: osDiskSizeGB
-            count: agentCount
-            vmSize: vmSize
-            osType: osType
-            osDiskType: 'Managed'
-            mode: 'System'
-            }
-        ]
-    }
-    identity: {
-        type: 'SystemAssigned'
-    }
+resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+    name: 'test-k8s'
+    location: deployment().location
 }
 
-
-// output controlPlaneFQDN string = aks.fqdn
+module aksDeploy './aks.bicep' = {
+    name: 'aksDeploy'
+    scope: rg
+    params: {
+        clusterName: 'test-k8s'
+    }
+}

@@ -13,16 +13,20 @@ bicepFile="./main.bicep"
 az bicep build --file ${bicepFile}
 ```
 
-3. Deploy the with Bicep script
+3. Deploy the with subscription scope
 
 ``` shell
-bicepFile="./main.bicep"
+bicepFile="./main.json"
 
-az deployment group create \
-  --name firstbicep \
-  --resource-group test-k8s \
-  --template-file $bicepFile
+az deployment sub create \
+--template-file ${bicepFile} \
+--location 'southeastasia' \
+--confirm-with-what-if
 ```
+
+> Get location info:
+>
+> `az account list-locations --query [].name|grep asia`
 
 # References
 
@@ -30,4 +34,6 @@ az deployment group create \
 
     > Watch this video to learn basics of Bicep.
 
-    > From *t=701* to *t=1568* contanis the live demo 
+    > From **t=701** to **t=1568** contanis the live demo 
+    > - `t=701`: Beginning of demo
+    > - `t=1054` : Create subscription scope bicep file
