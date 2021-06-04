@@ -8,21 +8,35 @@ This folder contains learning about Virtual Network.
 az account list
 ```
 
-2. Build ARM template from Bicep script
+2. Prepare resource group
+
+``` shell
+az group create --location 'southeastasia' \
+--name 'myRG'
+```
+
+3. Build ARM template from Bicep script
 
 ```  shell
 bicepFile="./main.bicep"
 az bicep build --file ${bicepFile}
 ```
 
-3. Deploy the with subscription scope
+4. Deploy with resource group scope
 
 ``` shell
-bicepFile="./main.bicep"
-time az deployment sub create \
---template-file ${bicepFile} \
---location 'southeastasia' \
---confirm-with-what-if
+az deployment group create --resource-group myRG \
+--template-file ./main.bicep \
+--parameters virtualNetworkName=vn1
+```
+
+> List deployments: `az deployment group list -g myRG` 
+> Export deployment template: `az deployment group export -g myRG -n main` 
+
+5. Delete resource group
+
+``` shell
+az group delete -n myRG
 ```
 
 > Get location info:
