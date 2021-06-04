@@ -18,7 +18,7 @@ az bicep build --file ${bicepFile}
 3. Deploy the with subscription scope
 
 ``` shell
-bicepFile="./main.json"
+bicepFile="./main.bicep"
 
 az deployment sub create \
 --template-file ${bicepFile} \
