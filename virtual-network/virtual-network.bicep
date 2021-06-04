@@ -26,3 +26,6 @@ resource vn 'Microsoft.Network/virtualNetworks@2020-07-01' = {
         ]
     }
 }
+
+output subnet1Id string = vn.properties.subnets[0].id
+output subnet2Id string = vn.properties.subnets[1].id
