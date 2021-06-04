@@ -19,8 +19,7 @@ az bicep build --file ${bicepFile}
 
 ``` shell
 bicepFile="./main.bicep"
-
-az deployment sub create \
+time az deployment sub create \
 --template-file ${bicepFile} \
 --location 'southeastasia' \
 --confirm-with-what-if
