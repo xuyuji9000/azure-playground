@@ -6,22 +6,38 @@ This folder document the learning about deploying AKS with Bicep script.
 az account list
 ```
 
-2. Build ARM template from Bicep script
+2. Prepare resource group
+
+``` shell
+az group create --location 'southeastasia' \
+--name 'myRG'
+```
+
+
+3. Build ARM template from Bicep script
 
 ```  shell
 bicepFile="./main.bicep"
 az bicep build --file ${bicepFile}
 ```
 
-3. Deploy the with subscription scope
+
+4. Deploy with resource group scope
 
 ``` shell
-bicepFile="./main.json"
+resourceGroup="myRG"
+az deployment group create --resource-group ${resourceGroup} \
+--template-file ./main.bicep \
+--parameters clusterName='testK8s'
 
-az deployment sub create \
---template-file ${bicepFile} \
---location 'southeastasia' \
---confirm-with-what-if
+```
+> List deployments: `az deployment group list -g myRG` 
+> Export deployment template: `az deployment group export -g myRG -n main` 
+
+5. Delete resource group
+
+``` shell
+az group delete -n myRG
 ```
 
 > Get location info:
