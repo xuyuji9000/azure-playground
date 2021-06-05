@@ -37,7 +37,7 @@ az deployment group create --resource-group ${resourceGroup} \
 5. Delete resource group
 
 ``` shell
-az group delete -n myRG
+time az group delete -n myRG
 ```
 
 > Get location info:
