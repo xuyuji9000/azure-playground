@@ -8,3 +8,5 @@ This repo documents the learning related to Azure Cloud.
 - [vpn-gateway](./vpn-gateway/Readme.md)
 
 - [virtual-network](./virtual-network/Readme.md)
+
+- [pipeline](./pipeline/Readme.md)
